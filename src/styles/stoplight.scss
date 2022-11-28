@@ -1,9 +1,27 @@
 .light {
   --size: 25vmin;
   --background: #444;
+  --red: hsl(0, 61%, 50%);
+  --red-dim: hsl(0, 30%, 40%);
+  --yellow: hsl(45, 83%, 50%);
+  --yellow-dim: hsl(45, 30%, 40%);
+  --green: hsl(124, 63%, 48%);
+  --green-dim: hsl(124, 30%, 40%);
 
   width: var(--size);
   height: var(--size);
   background: var(--background);
   border-radius: 50%;
+
+  &[data-color='red'] {
+    background: var(--red-dim);
+  }
+
+  &[data-color='yellow'] {
+    background: var(--yellow-dim);
+  }
+
+  &[data-color='green'] {
+    background: var(--green-dim);
+  }
 }
