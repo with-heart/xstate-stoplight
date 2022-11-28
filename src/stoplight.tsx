@@ -1,27 +1,36 @@
 import {useMachine} from '@xstate/react'
 import {createMachine} from 'xstate'
 
-const stoplightMachine = createMachine({
-  id: 'stoplight',
-  initial: 'red',
-  states: {
-    red: {
-      after: {
-        1000: 'green',
+const stoplightMachine = createMachine(
+  {
+    id: 'stoplight',
+    initial: 'red',
+    states: {
+      red: {
+        after: {
+          red: 'green',
+        },
       },
-    },
-    yellow: {
-      after: {
-        1000: 'red',
+      yellow: {
+        after: {
+          yellow: 'red',
+        },
       },
-    },
-    green: {
-      after: {
-        1000: 'yellow',
+      green: {
+        after: {
+          green: 'yellow',
+        },
       },
     },
   },
-})
+  {
+    delays: {
+      red: 3_000,
+      yellow: 1_000,
+      green: 4_000,
+    },
+  },
+)
 
 export const Stoplight = () => {
   const [state] = useMachine(stoplightMachine)
