@@ -14,26 +14,26 @@
   border-radius: 50%;
 
   &[data-color='red'] {
-    background: var(--red-dim);
+    --background: var(--red-dim);
 
     &[data-active='true'] {
-      background: var(--red);
+      --background: var(--red);
     }
   }
 
   &[data-color='yellow'] {
-    background: var(--yellow-dim);
+    --background: var(--yellow-dim);
 
     &[data-active='true'] {
-      background: var(--yellow);
+      --background: var(--yellow);
     }
   }
 
   &[data-color='green'] {
-    background: var(--green-dim);
+    --background: var(--green-dim);
 
     &[data-active='true'] {
-      background: var(--green);
+      --background: var(--green);
     }
   }
 }
