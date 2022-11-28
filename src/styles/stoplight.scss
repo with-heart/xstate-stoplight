@@ -15,13 +15,25 @@
 
   &[data-color='red'] {
     background: var(--red-dim);
+
+    &[data-active='true'] {
+      background: var(--red);
+    }
   }
 
   &[data-color='yellow'] {
     background: var(--yellow-dim);
+
+    &[data-active='true'] {
+      background: var(--yellow);
+    }
   }
 
   &[data-color='green'] {
     background: var(--green-dim);
+
+    &[data-active='true'] {
+      background: var(--green);
+    }
   }
 }
