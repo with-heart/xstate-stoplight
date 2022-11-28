@@ -1,3 +1,9 @@
 export const Stoplight = () => {
-  return <div>Stoplight</div>
+  return (
+    <div>
+      <div className="light" />
+      <div className="light" />
+      <div className="light" />
+    </div>
+  )
 }
