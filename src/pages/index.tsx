@@ -1,10 +1,11 @@
 import Head from 'next/head'
+import {Stoplight} from '../stoplight'
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>Stoplights with React, XState, and SCSS</title>
+        <title>Working stoplight built with XState</title>
         <meta
           name="description"
           content="Using React and SCSS to render a stoplight and XState to control its behavior"
@@ -12,7 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>Stoplights</main>
+      <main>
+        <Stoplight />
+      </main>
     </div>
   )
 }
