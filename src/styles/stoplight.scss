@@ -46,4 +46,21 @@
     border-radius: 50%;
     background: radial-gradient(#00000000, #000000cc);
   }
+
+  &[data-active='true'] {
+    z-index: 1;
+
+    &::before {
+      // glow adapted from the lovely tutorial at
+      // https://codersblock.com/blog/creating-glow-effects-with-css/
+      box-shadow: inset 0 0 10vmin #ffffffaa /* inner white */,
+        inset 0px 0 20vmin var(--background) /* inner color short */,
+        inset 0px 0 60vmin var(--background) /* inner color long */,
+        0 0 8vmin #ffffffaa /* outer white */,
+        -10px 0 20vmin var(--background) /* outer color left short */,
+        10px 0 60vmin var(--background) /* outer color right short */,
+        -10px 0 20vmin var(--background) /* outer color left long */,
+        10px 0 60vmin var(--background) /* outer color right long */;
+    }
+  }
 }
