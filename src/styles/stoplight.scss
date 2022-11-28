@@ -1,3 +1,17 @@
+.stoplight {
+  --background: black;
+  --border-color: hsl(40, 94%, 48%);
+  --gap: 2vmin;
+  --padding: 5vmin;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: var(--gap);
+  padding: var(--padding);
+  background: var(--background);
+  border: 1px solid var(--border-color);
+}
+
 .light {
   --size: 25vmin;
   --background: #444;
