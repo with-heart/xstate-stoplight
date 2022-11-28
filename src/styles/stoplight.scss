@@ -20,6 +20,7 @@
 
     &[data-active='true'] {
       --background: var(--red);
+      --glow-color: var(--red);
     }
   }
 
@@ -28,6 +29,7 @@
 
     &[data-active='true'] {
       --background: var(--yellow);
+      --glow-color: var(--yellow);
     }
   }
 
@@ -36,6 +38,7 @@
 
     &[data-active='true'] {
       --background: var(--green);
+      --glow-color: var(--green);
     }
   }
 
@@ -48,19 +51,30 @@
   }
 
   &[data-active='true'] {
+    // glow adapted from the lovely tutorial at
+    // https://codersblock.com/blog/creating-glow-effects-with-css/
+    --glow-white: #ffffffaa;
+    --glow-spread-white: 8vmin;
+    --glow-spread-short: 20vmin;
+    --glow-spread-long: 60vmin;
+
+    --glow: inset 0 0 var(--glow-spread-white) var(--glow-white)
+        /* inner white */,
+      inset 0 0 var(--glow-spread-short) var(--glow-color)
+        /* inner color short */,
+      inset 0 0 var(--glow-spread-long) var(--glow-color) /* inner color long */,
+      0 0 var(--glow-spread-white) var(--glow-white) /* outer white */,
+      0 0 var(--glow-spread-short) var(--glow-color)
+        /* outer color left short */,
+      0 0 var(--glow-spread-short) var(--glow-color)
+        /* ouer color right short */,
+      0 0 var(--glow-spread-long) var(--glow-color) /* outer color left long */,
+      0 0 var(--glow-spread-long) var(--glow-color) /* outer color right long */;
+
     z-index: 1;
 
     &::before {
-      // glow adapted from the lovely tutorial at
-      // https://codersblock.com/blog/creating-glow-effects-with-css/
-      box-shadow: inset 0 0 10vmin #ffffffaa /* inner white */,
-        inset 0px 0 20vmin var(--background) /* inner color short */,
-        inset 0px 0 60vmin var(--background) /* inner color long */,
-        0 0 8vmin #ffffffaa /* outer white */,
-        -10px 0 20vmin var(--background) /* outer color left short */,
-        10px 0 60vmin var(--background) /* outer color right short */,
-        -10px 0 20vmin var(--background) /* outer color left long */,
-        10px 0 60vmin var(--background) /* outer color right long */;
+      box-shadow: var(--glow);
     }
   }
 }
