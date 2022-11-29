@@ -7,6 +7,15 @@
   height: var(--size);
   background: var(--dim);
   border-radius: 50%;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(#00000000, #000000cc);
+  }
 
   &[data-active='true'] {
     background: var(--bright);
