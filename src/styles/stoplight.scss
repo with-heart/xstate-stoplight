@@ -11,4 +11,19 @@
   &[data-active='true'] {
     background: var(--bright);
   }
+
+  &[data-color='red'] {
+    --dim: hsl(0, 25%, 30%);
+    --bright: hsl(0, 61%, 50%);
+  }
+
+  &[data-color='yellow'] {
+    --dim: hsl(45, 25%, 30%);
+    --bright: hsl(45, 83%, 50%);
+  }
+
+  &[data-color='green'] {
+    --dim: hsl(124, 25%, 30%);
+    --bright: hsl(124, 63%, 50%);
+  }
 }
