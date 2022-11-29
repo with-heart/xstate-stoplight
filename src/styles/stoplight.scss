@@ -34,6 +34,38 @@
 
   &[data-active='true'] {
     background: var(--bright);
+    z-index: 1;
+
+    &::before {
+      --glow-color: var(--bright);
+      --glow-white: #ffffffaa;
+
+      --glow-spread-inset: 10vmin;
+      --glow-blur-white: 8vmin;
+      --glow-shadow-inset-white: inset 0 0 var(--glow-blur-white)
+        var(--glow-spread-inset) var(--glow-white);
+      --glow-shadow-white: 0 0 var(--glow-blur-white) var(--glow-white);
+
+      --glow-blur-small: 10vmin;
+      --glow-spread-small: 1vmin;
+      --glow-shadow-small: 0 0 var(--glow-blur-small) var(--glow-spread-small)
+        var(--glow-color);
+
+      --glow-large-blur: 20vmin;
+      --glow-large-spread: 2vmin;
+      --glow-shadow-large: 0 0 var(--glow-large-blur) var(--glow-large-spread)
+        var(--glow-color);
+
+      --glow-shadow-inset: var(--glow-shadow-inset-white),
+        inset var(--glow-shadow-small), inset var(--glow-shadow-large);
+      --glow-shadow-outer: 0 0 var(--glow-blur-white) var(--glow-white),
+        var(--glow-shadow-small), var(--glow-shadow-small),
+        var(--glow-shadow-large), var(--glow-shadow-large);
+
+      --glow: var(--glow-shadow-inset), var(--glow-shadow-outer);
+
+      box-shadow: var(--glow);
+    }
   }
 
   &[data-color='red'] {
