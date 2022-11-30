@@ -65,6 +65,7 @@
       --glow: var(--glow-shadow-inset), var(--glow-shadow-outer);
 
       box-shadow: var(--glow);
+      filter: blur(1px);
     }
   }
 
