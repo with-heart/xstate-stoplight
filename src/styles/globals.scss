@@ -18,5 +18,9 @@ body {
 main {
   height: 100vh;
   display: grid;
-  place-items: center;
+  grid-template:
+    '.     .     .' 1fr
+    '. stoplight .' 1fr
+    '.     .     .' 1fr / 1fr 1fr 1fr;
+  align-items: center;
 }
