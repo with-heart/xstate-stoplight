@@ -1,5 +1,6 @@
 import {useMachine} from '@xstate/react'
 import {createMachine} from 'xstate'
+import styles from './stoplight.module.scss'
 
 const stoplightMachine = createMachine({
   id: 'stoplight',
@@ -28,19 +29,19 @@ export const Stoplight = () => {
   const [state] = useMachine(stoplightMachine)
 
   return (
-    <div className="stoplight">
+    <div className={styles.stoplight}>
       <div
-        className="light"
+        className={styles.light}
         data-color="red"
         data-active={state.matches('red')}
       />
       <div
-        className="light"
+        className={styles.light}
         data-color="yellow"
         data-active={state.matches('yellow')}
       />
       <div
-        className="light"
+        className={styles.light}
         data-color="green"
         data-active={state.matches('green')}
       />
