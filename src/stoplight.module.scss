@@ -4,3 +4,13 @@
   background: #666;
   border-radius: 50%;
 }
+
+.aspect[data-aspect='red'] {
+  background: red;
+}
+.aspect[data-aspect='amber'] {
+  background: orange;
+}
+.aspect[data-aspect='green'] {
+  background: green;
+}
