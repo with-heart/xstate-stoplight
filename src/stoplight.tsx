@@ -1,3 +1,11 @@
+import styles from './stoplight.module.scss'
+
 export const Stoplight = () => {
-  return <div>Stoplight</div>
+  return (
+    <div>
+      <div className={styles.aspect} />
+      <div className={styles.aspect} />
+      <div className={styles.aspect} />
+    </div>
+  )
 }
