@@ -3,14 +3,14 @@
   height: 100px;
   background: #666;
   border-radius: 50%;
-}
 
-.aspect[data-aspect='red'] {
-  background: red;
-}
-.aspect[data-aspect='amber'] {
-  background: orange;
-}
-.aspect[data-aspect='green'] {
-  background: green;
+  &[data-aspect='red'] {
+    background: red;
+  }
+  &[data-aspect='amber'] {
+    background: orange;
+  }
+  &[data-aspect='green'] {
+    background: green;
+  }
 }
