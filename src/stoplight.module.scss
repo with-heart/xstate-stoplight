@@ -3,19 +3,21 @@
   height: 100px;
   background: var(--color, #666);
   border-radius: 50%;
-  opacity: 0.5;
 
   &[data-active='true'] {
-    opacity: 1;
+    background: var(--color-active, #ccc);
   }
 
   &[data-aspect='red'] {
-    --color: red;
+    --color: hsl(0, 20%, 20%);
+    --color-active: hsl(0, 61%, 50%);
   }
   &[data-aspect='amber'] {
-    --color: orange;
+    --color: hsl(45, 20%, 20%);
+    --color-active: hsl(45, 83%, 50%);
   }
   &[data-aspect='green'] {
-    --color: green;
+    --color: hsl(124, 20%, 20%);
+    --color-active: hsl(124, 63%, 50%);
   }
 }
