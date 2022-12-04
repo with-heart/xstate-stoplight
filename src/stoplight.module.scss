@@ -9,13 +9,14 @@
 }
 
 .aspect {
+  --background: var(--color, #666);
   width: 30vmin;
   height: 30vmin;
-  background: var(--color, #666);
+  background: radial-gradient(transparent, #000000cc), var(--background);
   border-radius: 50%;
 
   &[data-active='true'] {
-    background: var(--color-active, #ccc);
+    --background: var(--color-active, #ccc);
   }
 
   &[data-aspect='red'] {
