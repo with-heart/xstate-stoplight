@@ -3,6 +3,11 @@
   height: 100px;
   background: #666;
   border-radius: 50%;
+  opacity: 0.5;
+
+  &[data-active='true'] {
+    opacity: 1;
+  }
 
   &[data-aspect='red'] {
     background: red;
