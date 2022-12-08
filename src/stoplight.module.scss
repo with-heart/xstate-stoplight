@@ -14,9 +14,18 @@
   height: 30vmin;
   background: radial-gradient(transparent, #000000cc), var(--background);
   border-radius: 50%;
+  position: relative;
 
   &[data-active='true'] {
     --background: var(--color-active, #ccc);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      z-index: 1;
+    }
   }
 
   &[data-aspect='red'] {
@@ -33,5 +42,22 @@
     --color: hsl(124, 20%, 20%);
     --color-active: hsl(124, 63%, 50%);
     --grid-area: green;
+  }
+
+  &::before {
+    --glow-color: var(--color-active);
+    --glow-white: #ffffffcc;
+
+    --glow-shadow-inner-white: inset 0 0 10vmin 10vmin var(--glow-white);
+    --glow-shadow-outer-white: 0 0 10vmin var(--glow-color);
+    --glow-shadow-small: 0 0 8vmin 1vmin var(--glow-color);
+    --glow-shadow-large: 0 0 16vmin 6vmin var(--glow-color);
+
+    --glow: var(--glow-shadow-inner-white), inset var(--glow-shadow-large),
+      var(--glow-shadow-outer-white), var(--glow-shadow-small),
+      var(--glow-shadow-large);
+
+    box-shadow: var(--glow);
+    filter: blur(1px);
   }
 }
