@@ -30,19 +30,22 @@ export const Stoplight = () => {
   return (
     <div className={stoplight}>
       <div
-        className={aspect}
-        data-aspect="red"
-        data-active={state.matches('red')}
+        className={aspect({
+          color: 'red',
+          active: state.matches('red'),
+        })}
       />
       <div
-        className={aspect}
-        data-aspect="amber"
-        data-active={state.matches('amber')}
+        className={aspect({
+          color: 'amber',
+          active: state.matches('amber'),
+        })}
       />
       <div
-        className={aspect}
-        data-aspect="green"
-        data-active={state.matches('green')}
+        className={aspect({
+          color: 'green',
+          active: state.matches('green'),
+        })}
       />
     </div>
   )

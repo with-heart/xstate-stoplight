@@ -1,4 +1,5 @@
 import {createVar, fallbackVar, style} from '@vanilla-extract/css'
+import {recipe} from '@vanilla-extract/recipes'
 
 export const background = createVar()
 export const color = createVar()
@@ -38,9 +39,6 @@ const glowing = style({
 })
 
 const base = style({
-  vars: {
-    [background]: fallbackVar(color, '#666'),
-  },
   width: '30vmin',
   height: '30vmin',
   background: `radial-gradient(transparent, #000000cc), ${background}`,
@@ -55,33 +53,59 @@ const base = style({
       filter: 'blur(1px)',
       zIndex: 1,
     },
-    '&[data-active="true"]': {
-      vars: {
-        [background]: fallbackVar(colorActive, '#ccc'),
-      },
-    },
-    '&[data-active="true"]::before': {
-      content: '',
-    },
-    '&[data-aspect="red"]': {
-      vars: {
-        [color]: 'hsl(0, 20%, 20%)',
-        [colorActive]: 'hsl(0, 61%, 50%)',
-      },
-    },
-    '&[data-aspect="amber"]': {
-      vars: {
-        [color]: 'hsl(45, 20%, 20%)',
-        [colorActive]: 'hsl(45, 83%, 50%)',
-      },
-    },
-    '&[data-aspect="green"]': {
-      vars: {
-        [color]: 'hsl(124, 20%, 20%)',
-        [colorActive]: 'hsl(124, 63%, 50%)',
-      },
-    },
   },
 })
 
-export const aspect = style([base, glowing])
+export const aspect = recipe({
+  base: [base, glowing],
+
+  variants: {
+    color: {
+      red: {
+        vars: {
+          [color]: 'hsl(0, 20%, 20%)',
+          [colorActive]: 'hsl(0, 61%, 50%)',
+        },
+      },
+      amber: {
+        vars: {
+          [color]: 'hsl(45, 20%, 20%)',
+          [colorActive]: 'hsl(45, 83%, 50%)',
+        },
+      },
+      green: {
+        vars: {
+          [color]: 'hsl(124, 20%, 20%)',
+          [colorActive]: 'hsl(124, 63%, 50%)',
+        },
+      },
+      neutral: {
+        vars: {
+          [color]: '#666',
+          [colorActive]: '#ccc',
+        },
+      },
+    },
+    active: {
+      false: {
+        vars: {
+          [background]: color,
+        },
+      },
+      true: {
+        vars: {
+          [background]: colorActive,
+        },
+        selectors: {
+          '&::before': {
+            content: '',
+          },
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    color: 'neutral',
+  },
+})
